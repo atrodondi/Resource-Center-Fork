@@ -16,12 +16,12 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/resourceCenter", {
+  .connect(process.env.MONGO_CONNECTION, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(console.log("connected to MongoDB successfully, full send baby!!"))
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });
 
@@ -34,44 +34,33 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
 
-
-
-
-
-
-
-
-
-
-
 // CAPTURE APP TERMINATION / RESTART EVENTS
 // To be called when process is restarted or terminated
 gracefulShutdown = function (msg, callback) {
-    mongoose.connection.close(function () {
-      console.log('Mongoose disconnected through ' + msg);
-      callback();
-    });
-  };
-  // For nodemon restarts
-  process.once('SIGUSR2', function () {
-    gracefulShutdown('nodemon restart', function () {
-      process.kill(process.pid, 'SIGUSR2');
-    });
+  mongoose.connection.close(function () {
+    console.log("Mongoose disconnected through " + msg);
+    callback();
   });
-  // For app termination
-  process.on('SIGINT', function() {
-    gracefulShutdown('app termination', function () {
-      process.exit(0);
-    });
+};
+// For nodemon restarts
+process.once("SIGUSR2", function () {
+  gracefulShutdown("nodemon restart", function () {
+    process.kill(process.pid, "SIGUSR2");
   });
-  // For Heroku app termination
-  process.on('SIGTERM', function() {
-    gracefulShutdown('Heroku app termination', function () {
-      process.exit(0);
-    });
+});
+// For app termination
+process.on("SIGINT", function () {
+  gracefulShutdown("app termination", function () {
+    process.exit(0);
   });
+});
+// For Heroku app termination
+process.on("SIGTERM", function () {
+  gracefulShutdown("Heroku app termination", function () {
+    process.exit(0);
+  });
+});
