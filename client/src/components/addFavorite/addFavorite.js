@@ -6,8 +6,14 @@ export default function addFavorite(props) {
   // functions
 
   return (
-    <Button  id = {props.category} variant="outline-info" className="mr-2" onClick={props.onClick}>
-      <FiHeart id = {props.category} onClick={props.onClick}></FiHeart>
+    <Button
+      name="favBtn"
+      id={props.category}
+      variant="outline-info"
+      className="mr-2"
+      onClick={props.onClick}
+    >
+      <FiHeart id={props.category} onClick={props.onClick}></FiHeart>
     </Button>
   );
 }

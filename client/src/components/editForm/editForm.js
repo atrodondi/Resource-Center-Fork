@@ -118,6 +118,7 @@ export default class EditForm extends Component {
           </Form.Group>
 
           <Button
+            name="submitEdit"
             type="submit"
             variant="outline-success"
             onClick={this.handleSubmit}

@@ -20,7 +20,7 @@ export default class Home extends Component {
       setShow: false,
       modalResId: "",
       modalRes: {},
-      sortedResources: [],
+      sortedResources: []
     };
   }
 
@@ -31,7 +31,7 @@ export default class Home extends Component {
 
   handleClose = () => this.setState({ show: false });
 
-  handleShow = (event) => {
+  handleShow = event => {
     event.preventDefault();
     this.setState({ show: true });
     this.setState({ modalResId: event.target.id });
@@ -42,64 +42,70 @@ export default class Home extends Component {
   };
 
   // get one resource by id
-  getResourceById = (rscId) => {
+  getResourceById = rscId => {
     console.log("getRes func ID ", rscId);
     API.getResourceById(rscId)
-      .then((res) => {
+      .then(res => {
         console.log(res);
         this.setState({ modalRes: res.data });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
 
   // get all resources by category
-  getByCategory = (category) => {
+  getByCategory = category => {
     API.getAllByCategory(category)
-      .then((res) => {
+      .then(res => {
         console.log(res.data);
         this.setState({ sortedResources: res.data });
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
   // update state after adding new resource
-  updateResState = (rsc) => { };
+  updateResState = rsc => {};
 
   // favorite button click
-  onClick = (event) => {
+  onClick = event => {
     let resourceId = event.target.id;
     console.log("favorites button on click:", resourceId);
     API.addFavorite(resourceId)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
 
   // renddering addFavorite button into resource items
-  renderAddFav = (category) => {
+  renderAddFav = category => {
     return (
       <AddFavorite category={category} onClick={this.onClick}></AddFavorite>
     );
   };
 
   // delete button (as done for favorites)
-  deleteResourceById = (event) => {
+  deleteResourceById = event => {
     let resourceId = event.target.id;
     console.log("delete clicked", resourceId);
     API.deleteResourceById(resourceId)
-      .then((res) => {
+      .then(res => {
         console.log(res);
         this.props.updateState();
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
 
   // rendering the delete button (as done for favorites)
-  renderDeleteById = (id) => {
-    return <DeleteFav id={id} delete={this.deleteResourceById}></DeleteFav>;
+  renderDeleteById = id => {
+    return (
+      <DeleteFav
+        name="deleteBtn"
+        id={id}
+        delete={this.deleteResourceById}
+      ></DeleteFav>
+    );
   };
 
   render() {
@@ -110,7 +116,7 @@ export default class Home extends Component {
         <h2>Categories</h2>
         <br />
         <div className="category-container">
-          {this.props.categArrUnique.map((cat) => (
+          {this.props.categArrUnique.map(cat => (
             <Categicon
               key={cat.id}
               category={cat.category}
@@ -124,7 +130,7 @@ export default class Home extends Component {
         <br />
         {/* container for rendering all user's categories/resource items */}
         <div className="category-container">
-          {this.props.categArr.map((cat) => (
+          {this.props.categArr.map(cat => (
             <ResourceItem
               category={cat.category}
               key={cat._id}
@@ -151,19 +157,19 @@ export default class Home extends Component {
             {this.state.currentCateg === undefined ? (
               <Modal.Title>{this.state.modalRes.title}</Modal.Title>
             ) : (
-                <Modal.Title>{this.state.currentCateg}</Modal.Title>
-              )}
+              <Modal.Title>{this.state.currentCateg}</Modal.Title>
+            )}
           </Modal.Header>
 
           <Modal.Body
             style={{
               backgroundImage: "url(" + (this.state.modalRes.link || "") + ")",
               backgroundSize: "contain",
-              minHeight: "300px",
+              minHeight: "300px"
             }}
           >
             {/* resource content can go here */}
-            {this.state.sortedResources.map((rsc) => {
+            {this.state.sortedResources.map(rsc => {
               return (
                 <ResourceItem
                   key={rsc._id}

@@ -33,16 +33,18 @@ export default function navbar(props) {
               </div>
             </Nav.Link> */}
             <Nav.Link
+              name="homeBtn"
               href="#home"
               onClick={() => props.handlePageChange("Home")}
             >
               Home
               <div className="nav-item home">
-              <AiOutlineHome />
+                <AiOutlineHome />
               </div>
             </Nav.Link>
-            
+
             <Nav.Link
+              name="favoritesBtn"
               className="favorites"
               href="#favorite"
               onClick={() => props.handlePageChange("Favorites")}
@@ -60,16 +62,19 @@ export default function navbar(props) {
             />
             {/* tasks button */}
             <Button
+              name="tasksBtn"
               className="mr-3 task-button"
               bsPrefix="button"
               onClick={() => props.handleShowTaskBar()}
-            >Tasks
+            >
+              Tasks
               <div className="nav-item task">
                 <FaTasks />
               </div>
             </Button>
             {/* logout button */}
             <Button
+              name="logoutBtn"
               className="float-right logout"
               variant="outline-light"
               onClick={() => props.logout()}

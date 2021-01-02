@@ -13,7 +13,12 @@ export default function addNewBtn(props) {
 
   return (
     <>
-      <Button variant="outline-info" className="mr-3" onClick={handleShow}>
+      <Button
+        name="addNewResource"
+        variant="outline-info"
+        className="mr-3"
+        onClick={handleShow}
+      >
         Add New Resource
         <div className="add-new">
           <FiPlus />

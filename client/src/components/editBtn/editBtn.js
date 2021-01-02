@@ -12,9 +12,9 @@ export default function editBtn(props) {
 
   const [resource, setResource] = useState({});
 
-  const click = (event) => {
+  const click = event => {
     API.getResourceById(event.target.id)
-      .then((res) => {
+      .then(res => {
         let data = res.data;
         console.log(data);
         setResource({
@@ -22,18 +22,18 @@ export default function editBtn(props) {
           title: data.title,
           link: data.link,
           category: data.category,
-          description: data.description,
+          description: data.description
         });
 
         console.log(resource);
         handleShow();
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
   return (
     <>
-      <Button variant="outline-warning" className="mr-2">
+      <Button name="editBtn" variant="outline-warning" className="mr-2">
         <FiEdit id={props.id} onClick={click}></FiEdit>
       </Button>
 

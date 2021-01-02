@@ -1,4 +1,4 @@
-const loginPageTests = require("./loginPageTests");
+const loginPageTests = require("./loginPage/test");
 
 // test to make sure a new user can register
 loginPageTests.regNewUser();

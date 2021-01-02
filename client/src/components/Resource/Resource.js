@@ -17,6 +17,7 @@ export default function ResourceItem(props) {
         </Card.Body>
         <Card.Footer>
           <Button
+            name="linkBtn"
             className="mr-2"
             href={props.link}
             target={"_blank"}
@@ -31,11 +32,10 @@ export default function ResourceItem(props) {
             id={props.id}
           ></EditButton>
           {props.renderDeleteBtn() === false ? (
-            <></>) :
-            (<>
-              {props.renderDeleteBtn(props.id)}
-            </>
-            )}
+            <></>
+          ) : (
+            <>{props.renderDeleteBtn(props.id)}</>
+          )}
         </Card.Footer>
       </Card>
       {/* <Image
@@ -48,6 +48,6 @@ export default function ResourceItem(props) {
       <div className="caption">
         <p>{props.title}</p>
       </div> */}
-    </div >
+    </div>
   );
 }
