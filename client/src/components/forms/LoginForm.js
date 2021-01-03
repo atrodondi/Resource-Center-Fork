@@ -6,7 +6,7 @@ import {
   Card,
   Form,
   Button,
-  Modal,
+  Modal
 } from "react-bootstrap";
 import Alert from "../alerts/loginAlert";
 import "./style.css";
@@ -38,7 +38,7 @@ export default function LoginForm(props) {
         <Row className="align-items-center h-100">
           <Col className="col-sm-12 mx-auto">
             <Card style={{ width: "300px", margin: "0 auto", float: "none" }}>
-              <Card.Header>Login</Card.Header>
+              <Card.Header name="loginHeader">Login</Card.Header>
               <Card.Body>
                 {" "}
                 {/* Card.Body pads the content */}

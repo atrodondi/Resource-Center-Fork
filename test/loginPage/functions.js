@@ -36,6 +36,7 @@ module.exports = {
 
   //   confirming a new user successfully registered
   confirmReg: async (driver, time) => {
+    console.log("CONFIRMING");
     //wait for the submit button pusb to register and grab the welcome message that matches the new registered user, confirming that user registration has been successful
     await driver.wait(until.elementLocated(By.className("welcoming")), 10000);
     let text = await await driver
@@ -45,6 +46,7 @@ module.exports = {
   },
   //   getting welcome message after sucessful login ensuring user has logged in sucessfully
   confirmLogin: async driver => {
+    console.log("CONFIRMING");
     //wait for welcome message on dashboard to confirm log in
     await driver.wait(until.elementLocated(By.className("welcoming")), 10000);
     //making sure welcome message is addressing user that logged in
@@ -59,7 +61,7 @@ module.exports = {
     // click logout button to log out
     await driver.findElement(By.name("logoutBtn")).click();
     await driver.wait(until.elementLocated(By.css("div.card-header")), 5000);
-    let text = await driver.findElement(By.css("div.card-header")).getText();
+    let text = await driver.findElement(By.name("loginHeader")).getText();
     expect(text).to.equal("Login");
   }
 };

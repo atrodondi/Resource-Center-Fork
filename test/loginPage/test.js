@@ -14,7 +14,7 @@ module.exports = {
           await functions.submitLoginForm(driver);
 
           //   getting welcome message after sucessful login
-          await functions.confirmLogin(driver);
+          functions.confirmLogin(driver);
 
           // log user out
           await functions.logOut(driver);
@@ -40,7 +40,7 @@ module.exports = {
           await functions.submitRegForm(driver, time);
 
           //confirming successful registration
-          await functions.confirmReg(driver, time);
+          functions.confirmReg(driver, time);
         } finally {
           await driver.quit();
         }
