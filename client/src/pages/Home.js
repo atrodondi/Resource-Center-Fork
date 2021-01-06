@@ -111,7 +111,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="home-wrapper">
-        <h1 className="welcoming">Welcome, {this.props.userName}.</h1>
+        <h1 className="welcoming" name="welcomeMsg">
+          Welcome, {this.props.userName}.
+        </h1>
         <br />
         <h2>Categories</h2>
         <br />

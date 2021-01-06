@@ -10,20 +10,20 @@ export default class AddResourceForm extends Component {
       link: "",
       category: "",
       description: "",
-      categoryInput: "",
+      categoryInput: ""
     };
   }
 
   //    input change
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     const { name, value } = e.target;
     this.setState({
-      [name]: value,
+      [name]: value
     });
   };
 
   //   handle submit
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     if (
       this.state.title === "" ||
@@ -37,10 +37,10 @@ export default class AddResourceForm extends Component {
       title: this.state.title,
       link: this.state.link,
       category: this.state.category,
-      description: this.state.description,
+      description: this.state.description
     };
     console.log(newResource);
-    API.addNewResource(newResource).then((res) => console.log(res));
+    API.addNewResource(newResource).then(res => console.log(res));
     this.props.handleClose();
     this.props.updateState();
   };
@@ -104,6 +104,7 @@ export default class AddResourceForm extends Component {
           </Form.Group>
 
           <Button
+            name="submitResource"
             type="submit"
             variant="outline-success"
             onClick={this.handleSubmit}

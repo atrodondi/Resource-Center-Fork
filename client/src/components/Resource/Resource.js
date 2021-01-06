@@ -7,12 +7,19 @@ import EditButton from "../editBtn/editBtn";
 // OPTION: define several different components for each resource type here
 
 export default function ResourceItem(props) {
+  let title = props.title;
+  let joinedTitle = title.split(" ").join("");
   return (
     <div className="item-box">
       <Card style={{ width: "18rem", height: "17rem" }}>
         {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
         <Card.Body>
-          <Card.Title style={{ color: "#ff9a76" }}>{props.title}</Card.Title>
+          <Card.Title
+            style={{ color: "#ff9a76" }}
+            id={joinedTitle.toLowerCase()}
+          >
+            {props.title}
+          </Card.Title>
           <Card.Text>{props.description}</Card.Text>
         </Card.Body>
         <Card.Footer>
