@@ -41,7 +41,7 @@ This site will make it easier to share and organize resources company-wide that 
 
 ## Authors
 
-- **Alex Rodondi** - _Login Full Stack & Cookies, Favorites Full Stack, Update Frontend, Full Stack Post Requests, Modals & Full Stack Get by Category Requests, Card Styling, Trouble Shooting Icon On-Click, Initial File Structure_ - [atrodondi](https://github.com/atrodondi)
+- **Alex Rodondi** - _Login Full Stack & Cookies, Favorites Full Stack, Update Frontend, Full Stack Post Requests, Modals & Full Stack Get by Category Requests, Card Styling, Trouble Shooting Icon On-Click, Initial File Structure, UI Testing_ - [atrodondi](https://github.com/atrodondi)
 - **Aaron Garner** - _Home Page Styling, Full Stack Get Request for JSON Database Object, Icon Images, React-Icons, Navbar & Button Styling, Mobile Responsiveness, User Login Assistance_ - [aaron-G18](https://github.com/aaron-G18)
 - **David Flores** - _Deploy to Heroku & Populate Deployed Site with Data, Task Bar Full Stack, Style Login Page, Improved Model Validation, Initial Seed File & Logic, Initial Resource Router & Controller, Initiate Github Repository_ - [broken-guitar](https://github.com/broken-guitar)
 - **Kate Jamboretz** - _Initial Models & Routes, Delete Full Stack, Initial Unique Category Array Function, Update Route & Controller, Favicon, Initial Page Routing, README_ - [katejamboretz](https://github.com/katejamboretz)
