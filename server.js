@@ -17,10 +17,13 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose
-  .connect(process.env.MONGO_CONNECTION, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+  .connect(
+    process.env.MONGO_CONNECTION || "mongodb://localhost/resourceCenter",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  )
   .then(console.log("connected to MongoDB successfully, full send baby!!"))
   .catch(err => {
     console.log(err);

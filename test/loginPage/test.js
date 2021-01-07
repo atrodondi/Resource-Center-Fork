@@ -5,7 +5,7 @@ module.exports = {
   // test to make sure a user can login to an existing account then log out and land on login page
   userLogin: function () {
     describe("Existing User login", () => {
-      it("should log user in using existing user account and land existing user on home page/dashboard", async () => {
+      it("should log user in using existing user account and land existing user on home page/dashboard. then log user out", async () => {
         let driver = await new Builder().forBrowser("chrome").build();
 
         try {
@@ -18,7 +18,6 @@ module.exports = {
 
           // log user out
           await functions.logOut(driver);
-          console.log("logged out");
         } finally {
           await driver.quit();
         }
